@@ -1,0 +1,18 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Outer Ring -->
+  <circle cx="50" cy="50" r="40" stroke="#D4AF37" stroke-width="1" fill="none" opacity="0.5"/>
+  <!-- Inner Ring -->
+  <circle cx="50" cy="50" r="28" stroke="#D4AF37" stroke-width="0.5" fill="none" opacity="0.3"/>
+  
+  <!-- 4 Cardinal Rays -->
+  <path d="M50 10 L53 47 L90 50 L53 53 L50 90 L47 53 L10 50 L47 47 Z" fill="#D4AF37" />
+  
+  <!-- Center Glow -->
+  <circle cx="50" cy="50" r="10" fill="url(#glow)" />
+</svg>

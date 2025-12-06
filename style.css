@@ -1,0 +1,285 @@
+:root {
+    --bg-color: #1A1410;
+    --bg-alt: #251E18;
+    --text-color: #F5EFE0;
+    --text-muted: #A89B7E;
+    --primary-gold: #D4AF37;
+    --primary-glow: #E8C87C;
+    --accent: #C9A978;
+    --card-bg: #2B2318;
+    --border: #4A3F30;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Lora', serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    z-index: 1;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero {
+    text-align: center;
+    margin-top: 2rem; /* Reduced from 4rem to move title up */
+    margin-bottom: 4rem;
+    position: relative;
+    /* Ensure text stays on top of the image */
+    z-index: 10; 
+}
+
+.hero-bg-image {
+    position: absolute;
+    top: 80px; /* Moved DOWN (was -180px) so the head sits below the title */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 500px; /* Slightly smaller to frame the face better */
+    height: auto;
+    opacity: 0.6; /* Slightly brighter */
+    /* Radial mask to create a vignette effect, fading edges into darkness */
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.halo {
+    /* We can keep the halo as an extra layer of glow or remove it if the image is enough */
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, rgba(26, 20, 16, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.hero-logo {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    color: var(--primary-gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    /* Stronger shadow for readability against the image */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.5);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* Added shadow for readability */
+}
+
+.tagline {
+    font-family: 'Lora', serif;
+    font-size: 1.3rem; /* Slightly larger */
+    color: #FFFFFF; /* Pure white for max contrast */
+    font-style: italic;
+    margin-bottom: 3rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.9), 0 0 10px rgba(212, 175, 55, 0.3); /* Strong shadow + subtle glow */
+    font-weight: 500;
+}
+
+.prophecy-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    border-radius: 4px;
+    margin-bottom: 3rem;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.prophecy-card::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    border: 1px solid var(--border);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.prophecy-text {
+    font-size: 1.25rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.prophecy-source {
+    font-size: 0.8rem;
+    color: var(--primary-gold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.waitlist-section {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.call-to-action {
+    font-family: 'Cinzel', serif;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    letter-spacing: 0.1em;
+    font-size: 1.1rem;
+}
+
+.waitlist-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input[type="email"] {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    padding: 1rem;
+    color: var(--text-color);
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 2px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="email"]:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+}
+
+button {
+    background: var(--primary-gold);
+    color: var(--bg-color);
+    border: none;
+    padding: 1rem;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+button:hover {
+    background: var(--primary-glow);
+    transform: translateY(-1px);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.success-message {
+    color: var(--primary-gold);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.error-message {
+    color: #D4857A; /* Clay red */
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 4rem;
+    text-align: center;
+    width: 100%;
+}
+
+.feature h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.feature p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+footer {
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+}
+
+@media (min-width: 768px) {
+    .features {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+    .title {
+        font-size: 3.5rem;
+    }
+}
