@@ -1,10 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('waitlist-form');
-    const successMessage = document.querySelector('.success-message');
-    const errorMessage = document.querySelector('.error-message');
-    const input = form.querySelector('input[type="email"]');
-    const button = form.querySelector('button');
-    let sealedEmail = ''; // Store the user's email after success
+	    const form = document.getElementById('waitlist-form');
+	    if (!form) return;
+
+	    const successMessage = document.querySelector('.success-message');
+	    const errorMessage = document.querySelector('.error-message');
+	    const input = form.querySelector('input[type="email"]');
+	    const button = form.querySelector('button');
+	    let sealedEmail = ''; // Store the user's email after success
+	    const defaultButtonText = button.textContent;
+
+	    const shareTitle = document.body.dataset.shareTitle || 'The Second Coming';
+	    const shareText = document.body.dataset.shareText || 'The Scroll is opening. I have been sealed. Join the 144,000.';
 
     // 1. Check for Referral Code in URL
     const urlParams = new URLSearchParams(window.location.search);
@@ -48,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 sealedEmail = email; // Save for referral link
                 form.style.display = 'none';
                 successMessage.classList.remove('hidden');
-            } else {
+	            } else {
                 // Error
                 const data = await response.json();
                 console.error("Formspree Error:", data);
@@ -63,17 +69,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 errorMessage.textContent = msg;
                 errorMessage.classList.remove('hidden');
 
-                // Reset UI
-                button.textContent = 'SEAL MY PLACE';
+	                // Reset UI
+	                button.textContent = defaultButtonText;
                 button.disabled = false;
                 input.disabled = false;
             }
         } catch (error) {
-            console.error("Network Error:", error);
+	            console.error("Network Error:", error);
             errorMessage.textContent = "Connection error. Please try again.";
             errorMessage.classList.remove('hidden');
             
-            button.textContent = 'SEAL MY PLACE';
+	            button.textContent = defaultButtonText;
             button.disabled = false;
             input.disabled = false;
         }
@@ -86,8 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ? `${baseUrl}?ref=${encodeURIComponent(sealedEmail)}`
             : window.location.href;
     }
-
-    const shareText = 'The Scroll is opening. I have been sealed. Join the 144,000.';
 
     // WhatsApp
     const waBtn = document.getElementById('share-whatsapp');
@@ -113,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         shareBtn.addEventListener('click', async () => {
             const referralUrl = getReferralUrl();
             const shareData = {
-                title: 'The Second Coming',
+	                title: shareTitle,
                 text: shareText,
                 url: referralUrl
             };

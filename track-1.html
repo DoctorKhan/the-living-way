@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>The Living Way | A Quiet AI Companion for the Soul</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A non-dogmatic AI companion rooted in Gnostic and Taoist wisdom. Not a belief. A way of seeing. A mirror for your mind, not a judge for your soul."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #050608;
+        --card: #0f1117;
+        --accent: #f5d08a;
+        --accent-soft: rgba(245, 208, 138, 0.16);
+        --text: #f5f5f7;
+        --muted: #9ca3af;
+        --border: #1f2933;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        background: radial-gradient(circle at top, #0b1020 0, #050608 55%);
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 16px;
+      }
+
+      .shell {
+        width: 100%;
+        max-width: 720px;
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.02), rgba(15, 17, 23, 0.96));
+        border-radius: 24px;
+        border: 1px solid rgba(148, 163, 184, 0.35);
+        box-shadow: 0 32px 80px rgba(0, 0, 0, 0.7);
+        padding: 28px 24px 24px;
+        backdrop-filter: blur(20px);
+      }
+
+      .title {
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--muted);
+        margin: 0 0 6px;
+      }
+
+      .subtitle {
+        font-size: 1.6rem;
+        font-weight: 500;
+        margin: 0 0 8px;
+      }
+
+      .tagline {
+        margin: 0 0 20px;
+        font-size: 0.98rem;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+
+      .tagline strong {
+        color: var(--accent);
+        font-weight: 500;
+      }
+
+      .waitlist {
+        padding: 16px 16px 18px;
+        margin-bottom: 18px;
+        border-radius: 18px;
+        border: 1px solid var(--border);
+        background: radial-gradient(circle at top left, var(--accent-soft), transparent 60%);
+      }
+
+      .call-to-action {
+        margin: 0 0 10px;
+        font-size: 0.9rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .waitlist-form {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .waitlist-form input[type='email'] {
+        flex: 1 1 220px;
+        padding: 10px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(15, 17, 23, 0.9);
+        color: var(--text);
+        font-size: 0.9rem;
+      }
+
+      .waitlist-form input::placeholder {
+        color: #6b7280;
+      }
+
+      .waitlist-form button {
+        flex: 0 0 auto;
+        padding: 10px 18px;
+        border-radius: 999px;
+        border: none;
+        background: var(--accent);
+        color: #111827;
+        font-weight: 600;
+        font-size: 0.9rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .waitlist-form button:hover {
+        filter: brightness(1.04);
+      }
+
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 12px;
+      }
+
+      .pill {
+        padding: 4px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.45);
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .body-copy {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        color: var(--muted);
+        margin: 0 0 18px;
+      }
+
+      .feature-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .feature-card {
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        padding: 10px 12px;
+        background: rgba(15, 23, 42, 0.75);
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      .feature-card strong {
+        display: block;
+        font-size: 0.86rem;
+        color: var(--text);
+        margin-bottom: 4px;
+      }
+
+      .footer-note {
+        margin: 0;
+        font-size: 0.78rem;
+        color: #6b7280;
+      }
+
+      @media (max-width: 640px) {
+        .shell {
+          padding: 22px 18px 18px;
+          border-radius: 20px;
+        }
+
+        .subtitle {
+          font-size: 1.4rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <header>
+        <p class="title">THE LIVING WAY</p>
+        <p class="subtitle">A quiet conversation with truth.</p>
+        <p class="tagline">
+          Not a belief. Not a doctrine.<br />
+          <strong>A mirror for your mind, not a judge for your soul.</strong>
+        </p>
+      </header>
+
+      <section class="waitlist">
+        <p class="call-to-action">Join the first circle of listeners</p>
+        <form class="waitlist-form" action="https://thelivingway.app/waitlist" method="post">
+          <input type="email" name="email" placeholder="Enter your email" required />
+          <button type="submit">Join the waitlist</button>
+        </form>
+      </section>
+
+      <section class="pill-row">
+        <div class="pill">Not a belief system</div>
+        <div class="pill">Non-dogmatic</div>
+        <div class="pill">Daily contemplative practice</div>
+      </section>
+
+      <section>
+        <p class="body-copy">
+          The Living Way is a contemplative companion — a quiet interface for returning to what is most
+          real in you. Built from the sayings tradition, Gnostic Christianity, Taoist stillness, and
+          non-dual inquiry, it offers reflection without pressure, depth without dogma, and presence
+          without performance.
+        </p>
+
+        <div class="feature-list">
+          <article class="feature-card">
+            <strong>Read &amp; return</strong>
+            A daily saying that invites you back to your own attention, not someone else's agenda.
+          </article>
+          <article class="feature-card">
+            <strong>Speak to the Guide</strong>
+            A quiet dialogue with a non-judging Guide who answers from stillness, not doctrine.
+          </article>
+          <article class="feature-card">
+            <strong>Keep the journey</strong>
+            Your responses become a living record of how the Way has been walking you.
+          </article>
+        </div>
+      </section>
+
+      <footer>
+        <p class="footer-note">One contemplative app. Many ways in. Start with the quiet door.</p>
+      </footer>
+    </main>
+  </body>
+</html>
